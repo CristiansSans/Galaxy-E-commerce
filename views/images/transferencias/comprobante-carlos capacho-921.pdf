@@ -1,0 +1,150 @@
+-- phpMyAdmin SQL Dump
+-- version 4.5.1
+-- http://www.phpmyadmin.net
+--
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 19-07-2018 a las 05:59:44
+-- Versión del servidor: 10.1.16-MariaDB
+-- Versión de PHP: 7.0.9
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Base de datos: `ecommerce`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `productos`
+--
+
+CREATE TABLE `productos` (
+  `id` int(11) NOT NULL,
+  `nombre` varchar(50) NOT NULL,
+  `descripcion` varchar(50) NOT NULL,
+  `precio` varchar(11) NOT NULL,
+  `foto1` varchar(72) NOT NULL,
+  `foto2` varchar(72) NOT NULL,
+  `likes` int(11) NOT NULL,
+  `tipo` varchar(20) NOT NULL,
+  `cantidad` int(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `productos`
+--
+
+INSERT INTO `productos` (`id`, `nombre`, `descripcion`, `precio`, `foto1`, `foto2`, `likes`, `tipo`, `cantidad`) VALUES
+(1, 'Geforce GTX', 'cpu para gamers', '520.00', 'views/images/productos/producto-men-713.png', '', 0, 'men', 10),
+(2, 'PlayStation 4', 'Consola de videojuegos', '610.00', 'views/images/productos/producto-women-459.png', '', 0, 'women', 8),
+(3, 'The Witcher: Wild hunt', 'Juego de ps4', '30.00', 'views/images/productos/producto-accessories-657.png', '', 0, 'accessories', 20),
+(4, 'Dragon Ball Xenoverse 2', 'Juego de ps4', '50.00', 'views/images/productos/producto-accessories-203.png', '', 0, 'accessories', 5),
+(5, 'Geforce GTX 2', 'cpu para gamers', '550.00', 'views/images/productos/producto-men-526.png', '', 0, 'men', 0),
+(6, 'Farcry 5', 'Juego de xbox one', '48.00', 'views/images/productos/producto-accessories-496.png', '', 0, 'accessories', 12),
+(7, 'Xbox One', 'Consola de videojuegos', '600.00', 'views/images/productos/producto-women-156.png', '', 0, 'women', 15),
+(8, 'The Watch Dogs', 'Juego de ps4', '48.00', 'views/images/productos/producto-accessories-675.png', '', 0, 'accessories', 10),
+(9, 'Acer Predator Orion 9000', 'cpu para gamers', '610.00', 'views/images/productos/producto-men-634.png', '', 0, 'men', 4),
+(10, 'SPEC-ALPHA RED', 'cpu para gamers', '500.00', 'views/images/productos/producto-men-588.png', '', 0, 'men', 14);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuarios`
+--
+
+CREATE TABLE `usuarios` (
+  `id` int(11) NOT NULL,
+  `usuario` varchar(50) NOT NULL,
+  `contrasena` varchar(300) NOT NULL,
+  `correo` varchar(50) NOT NULL,
+  `foto` varchar(72) NOT NULL,
+  `rol` varchar(30) NOT NULL,
+  `intentos` int(3) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `usuarios`
+--
+
+INSERT INTO `usuarios` (`id`, `usuario`, `contrasena`, `correo`, `foto`, `rol`, `intentos`) VALUES
+(1, 'Luis', '$2y$11$vtUt3qKVM3N6OF8ntnrtEOoUZVNuEhSupqFp3IRpy5S9VVv6ZsYAy', 'luisbalcares17@gmail.com', 'views/images/perfiles/avatar.jpg', '0', 0),
+(39, 'carlos', '$2y$11$cI2cAsrVj.1btETlx6loZeN8n5OLkGAfSw5OzLp4CEsdmZ2X9TaUi', 'elcarlos@gmail.com', 'views/images/perfiles/avatar.jpg', '1', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `ventas`
+--
+
+CREATE TABLE `ventas` (
+  `id` int(11) NOT NULL,
+  `nombre_producto` varchar(200) NOT NULL,
+  `transferencia` varchar(100) NOT NULL,
+  `direccion` varchar(300) NOT NULL,
+  `usuario` varchar(50) NOT NULL,
+  `estadoV` varchar(10) NOT NULL,
+  `cedula` int(11) NOT NULL,
+  `envioCompra` varchar(200) NOT NULL,
+  `precioTotal` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `ventas`
+--
+
+INSERT INTO `ventas` (`id`, `nombre_producto`, `transferencia`, `direccion`, `usuario`, `estadoV`, `cedula`, `envioCompra`, `precioTotal`) VALUES
+(8, 'Dragon Ball Xenoverse 2', '', 'sdsdfsfdsdfsdf', 'asdadasadasd', 'false', 2147483647, 'mrw', '660'),
+(9, 'PlayStation 4', '', 'sdsdfsfdsdfsdf', 'asdadasadasd', 'false', 2147483647, 'mrw', '660');
+
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `productos`
+--
+ALTER TABLE `productos`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `ventas`
+--
+ALTER TABLE `ventas`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `productos`
+--
+ALTER TABLE `productos`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+--
+-- AUTO_INCREMENT de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+--
+-- AUTO_INCREMENT de la tabla `ventas`
+--
+ALTER TABLE `ventas`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

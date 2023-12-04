@@ -1,0 +1,112 @@
+-- phpMyAdmin SQL Dump
+-- version 4.5.1
+-- http://www.phpmyadmin.net
+--
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 09-07-2018 a las 13:43:05
+-- Versión del servidor: 10.1.16-MariaDB
+-- Versión de PHP: 7.0.9
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Base de datos: `ecommerce`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `productos`
+--
+
+CREATE TABLE `productos` (
+  `id` int(11) NOT NULL,
+  `nombre` varchar(50) NOT NULL,
+  `descripcion` varchar(50) NOT NULL,
+  `precio` varchar(11) NOT NULL,
+  `foto1` varchar(72) NOT NULL,
+  `foto2` varchar(72) NOT NULL,
+  `likes` int(11) NOT NULL,
+  `tipo` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `productos`
+--
+
+INSERT INTO `productos` (`id`, `nombre`, `descripcion`, `precio`, `foto1`, `foto2`, `likes`, `tipo`) VALUES
+(1, 'Fujifilm X100T 16 MP Digital Camera (Silver)', 'sueter', '$520.00', 'views/images/product_1.png', '', 0, 'men'),
+(2, 'Samsung CF591 Series Curved 27-Inch FHD Monitor', 'cartera', '$610.00', 'views/images/product_2.png', '', 0, 'women'),
+(3, 'Blue Yeti USB Microphone Blackout Edition', 'sueter', '$120.00', 'views/images/product_3.png', '', 0, 'women'),
+(4, 'DYMO LabelWriter 450 Turbo Thermal Label Printer', 'accesorio', '$410.00', 'views/images/product_4.png', '', 0, 'accessories'),
+(5, 'Pryma Headphones, Rose Gold & Grey', 'zapatos', '$190.00', 'views/images/product_5.png', '', 0, 'women men'),
+(6, 'Fujifilm X100T 16 MP Digital Camera (Silver)', 'accesorio', '$520.00', 'views/images/product_6.png', '', 0, 'accessories'),
+(7, 'Samsung CF591 Series Curved 27-Inch FHD Monitor', 'sueter', '$610.00', 'views/images/product_7.png', '', 0, 'women'),
+(8, 'Blue Yeti USB Microphone Blackout Edition', 'cartera', '$120.00', 'views/images/product_8.png', '', 0, 'accessories'),
+(9, 'DYMO LabelWriter 450 Turbo Thermal Label Printer', 'sueter', '$410.00', 'views/images/product_9.png', '', 0, 'men'),
+(10, 'Pryma Headphones, Rose Gold & Grey', 'sueter', '$180.00', 'views/images/product_10.png', '', 0, 'men');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuarios`
+--
+
+CREATE TABLE `usuarios` (
+  `id` int(11) NOT NULL,
+  `usuario` varchar(50) NOT NULL,
+  `contrasena` varchar(300) NOT NULL,
+  `correo` varchar(50) NOT NULL,
+  `foto` varchar(72) NOT NULL,
+  `rol` varchar(30) NOT NULL,
+  `intentos` int(3) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `usuarios`
+--
+
+INSERT INTO `usuarios` (`id`, `usuario`, `contrasena`, `correo`, `foto`, `rol`, `intentos`) VALUES
+(1, 'Luis', '$2y$11$vtUt3qKVM3N6OF8ntnrtEOoUZVNuEhSupqFp3IRpy5S9VVv6ZsYAy', 'luisbalcares17@gmail.com', 'views/images/perfiles/avatar.jpg', '0', 0),
+(39, 'carlos', '$2y$11$cI2cAsrVj.1btETlx6loZeN8n5OLkGAfSw5OzLp4CEsdmZ2X9TaUi', 'elcarlos@gmail.com', 'views/images/perfiles/avatar.jpg', '1', 0);
+
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `productos`
+--
+ALTER TABLE `productos`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `productos`
+--
+ALTER TABLE `productos`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+--
+-- AUTO_INCREMENT de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
